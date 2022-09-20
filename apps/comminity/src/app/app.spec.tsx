@@ -4,18 +4,19 @@ import App from './app';
 
 describe('App', () => {
   afterEach(() => {
-    delete global['fetch'];
+    // if (global['fetch'] != null){
+    //   delete global['fetch'];
+    // }
+    
     cleanup();
   });
 
   it('should render successfully', async () => {
     global['fetch'] = jest.fn().mockResolvedValueOnce({
-      json: () => ({
-        message: 'my message',
-      }),
+      json: () => ([{"title":"Todo 1"},{"title":"Todo 2"}]),
     });
 
     const { baseElement } = render(<App />);
-    await waitFor(() => getByText(baseElement, 'my message'));
+    await waitFor(() => getByText(baseElement, 'Todo 1'));
   });
 });

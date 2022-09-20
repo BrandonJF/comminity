@@ -11,10 +11,12 @@ const StyledTodos = styled.div`
 `;
 
 export function Todos(props: TodosProps) {
+  console.log("blessed")
+  console.log(props)
   return (
     <StyledTodos>
       <h1>Welcome to Todos!</h1>
-      <ul>{props.todos.map((t)=> (
+      <ul>{props.todos.map( t => (
         <li className={'todo'} key={t.title}>
           {t.title}
         </li>
