@@ -1,0 +1,5 @@
+- name: Nrwl Nx
+  uses: MansaGroup/nrwl-nx-action@v2
+  with:
+    targets: lint,test,build
+    all: 'true'
