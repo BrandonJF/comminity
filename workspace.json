@@ -3,8 +3,9 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
-    "api-interfaces": "libs/api-interfaces",
     "comminity": "apps/comminity",
-    "comminity-e2e": "apps/comminity-e2e"
+    "comminity-e2e": "apps/comminity-e2e",
+    "data": "libs/data",
+    "ui": "libs/ui"
   }
 }

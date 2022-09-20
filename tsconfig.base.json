@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@digitalmischief/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@digitalmischief/data": ["libs/data/src/index.ts"],
+      "@digitalmischief/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
