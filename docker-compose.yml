@@ -1,0 +1,29 @@
+version: '3.8'
+
+networks:
+  testNet:
+    driver: bridge
+
+
+services:
+  comminity:
+    container_name: comminity
+    networks:
+      - testNet
+    image: comminity
+    environment:
+      - APIPATH=http://api:3333
+      - PORT=3334
+    ports:
+      - '3334:3334'
+      - 8080:8080
+  api:
+    container_name: api
+    networks:
+      - testNet
+    image: api
+    environment:
+      - APIPATH=http://api:3333
+      - APIPORT=3333
+    ports:
+      - '3333:3333'

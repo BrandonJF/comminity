@@ -21,7 +21,8 @@
         ],
         "styles": [],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "@nrwl/react/plugins/webpack",
+        "generatePackageJson": true
       },
       "configurations": {
         "development": {
@@ -77,6 +78,16 @@
       "options": {
         "jestConfig": "apps/comminity/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "deploy" : {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx run comminity:build",
+          "docker build -f ./apps/comminity/Dockerfile . -t comminity"
+        ],
+        "parallel": false
       }
     }
   },
