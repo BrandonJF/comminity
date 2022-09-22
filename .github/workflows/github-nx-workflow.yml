@@ -167,18 +167,15 @@ jobs:
       - run: npm install
         name: 'Install dependencies'
       
-      # - name: Get build output
-      #   continue-on-error: true
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: build_output
-      #     path: dist
-      
       - uses: mansagroup/nrwl-nx-action@v2.1.0
         name: Deploy affected
         with:
           targets: deploy
           parallel: 'true'
           nxCloud: 'false'
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{secrets.NX_CLOUD_ACCESS_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.CI_PAT }}
+          
 env:
   NODE_VERSION: 16
