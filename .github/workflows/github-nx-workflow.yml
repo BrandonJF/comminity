@@ -8,6 +8,16 @@ on:
   push:
     branches: [ main ]
 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Image version'
+        required: true  
+
+env:
+  REGISTRY: "registry.digitalocean.com/digitalmischief"
+  IMAGE_NAME: "your-docker-image-name"
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # Lint workspace
@@ -139,40 +149,40 @@ jobs:
   #       env:
   #         NX_CLOUD_ACCESS_TOKEN: ${{secrets.NX_CLOUD_ACCESS_TOKEN}}
           
-  # # Deploy affected
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   needs: [lint, build, test]
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #       with:
-  #         fetch-depth: 0
+  # Deploy affected
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [lint, build, test]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
           
-  #     - uses: actions/setup-node@v3
-  #       name: 'Setup Node'
-  #       with:
-  #         node-version: ${{env.NODE_VERSION}}
-  #         cache: 'yarn'
+      - uses: actions/setup-node@v3
+        name: 'Setup Node'
+        with:
+          node-version: ${{env.NODE_VERSION}}
+          cache: 'npm'
           
-  #     - run: yarn install
-  #       name: 'Install dependencies'
+      - run: npm install
+        name: 'Install dependencies'
       
-  #     - name: Get build output
-  #       continue-on-error: true
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #         name: build_output
-  #         path: dist
+      # - name: Get build output
+      #   continue-on-error: true
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: build_output
+      #     path: dist
       
-  #     - uses: mansagroup/nrwl-nx-action@v2.1.0
-  #       name: Deploy affected
-  #       with:
-  #         targets: deploy
-  #         parallel: 'true'
-  #         nxCloud: 'true'
-  #       env:
-  #         NX_CLOUD_ACCESS_TOKEN: ${{secrets.NX_CLOUD_ACCESS_TOKEN}}
-  #         GITHUB_TOKEN: ${{ secrets.CI_PAT }}
+      - uses: mansagroup/nrwl-nx-action@v2.1.0
+        name: Deploy affected
+        with:
+          targets: deploy
+          parallel: 'true'
+          nxCloud: 'false'
+        env:
+          # NX_CLOUD_ACCESS_TOKEN: ${{secrets.NX_CLOUD_ACCESS_TOKEN}}
+          # GITHUB_TOKEN: ${{ secrets.CI_PAT }}
           
 env:
   NODE_VERSION: 16
