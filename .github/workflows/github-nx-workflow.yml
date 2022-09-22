@@ -172,6 +172,8 @@ jobs:
         name: Deploy affected
         with:
           targets: deploy
+          projects: comminity,api
+          affected: false
           parallel: 'true'
           nxCloud: 'false'
         env:
