@@ -176,9 +176,6 @@ jobs:
           affected: false
           parallel: 'true'
           nxCloud: 'false'
-        env:
-          # NX_CLOUD_ACCESS_TOKEN: ${{secrets.NX_CLOUD_ACCESS_TOKEN}}
-          # GITHUB_TOKEN: ${{ secrets.CI_PAT }}
 
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
