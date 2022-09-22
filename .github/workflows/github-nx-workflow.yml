@@ -169,7 +169,7 @@ jobs:
         name: 'Install dependencies'
       
       - uses: mansagroup/nrwl-nx-action@v2.1.0
-        name: Deploy affected
+        name: Deploy API and Comminity
         with:
           targets: deploy
           projects: comminity,api
@@ -197,6 +197,6 @@ jobs:
       - name: Push comminity image to DigitalOcean Container Registry
         run: docker push registry.digitalocean.com/digitalmischief/comminity 
 
-      - name: Push comminity image to DigitalOcean Container Registry
-        run: docker push registry.digitalocean.com/digitalmischief/comminity 
+      - name: Push api image to DigitalOcean Container Registry
+        run: docker push registry.digitalocean.com/digitalmischief/api 
         # run: docker push $(echo $IMAGE_NAME)
