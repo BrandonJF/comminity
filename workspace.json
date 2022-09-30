@@ -6,6 +6,7 @@
     "comminity": "apps/comminity",
     "comminity-e2e": "apps/comminity-e2e",
     "data": "libs/data",
-    "ui": "libs/ui"
+    "ui": "libs/ui",
+    "ui-e2e": "apps/ui-e2e"
   }
 }
