@@ -15,7 +15,7 @@ const app = express();
 // app.use('/api', apiProxy)
 addTodoRoutes(app);
 
-const port = process.env.APIPORT //|| 3334;
+const port = process.env.APIPORT || 3333;
 const server = app.listen(port, () => {
   console.log('API Listening at http://localhost:' + port + '/api');
 });
