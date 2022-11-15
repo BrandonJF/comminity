@@ -6,6 +6,12 @@
     "comminity": "apps/comminity",
     "comminity-e2e": "apps/comminity-e2e",
     "data": "libs/data",
+    "redux-action-creators": "libs/redux/action-creators",
+    "redux-action-types": "libs/redux/action-types",
+    "redux-actions": "libs/redux/actions",
+    "redux-hooks": "libs/redux/hooks",
+    "redux-reducers": "libs/redux/reducers",
+    "redux-store": "libs/redux/store",
     "ui": "libs/ui",
     "ui-e2e": "apps/ui-e2e"
   }

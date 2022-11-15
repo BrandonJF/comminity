@@ -16,7 +16,13 @@
     "baseUrl": ".",
     "paths": {
       "@digitalmischief/data": ["libs/data/src/index.ts"],
-      "@digitalmischief/ui": ["libs/ui/src/index.ts"]
+      "@digitalmischief/ui": ["libs/ui/src/index.ts"],
+      "@redux/action-creators": ["libs/redux/action-creators/src/index.ts"],
+      "@redux/action-types": ["libs/redux/action-types/src/index.ts"],
+      "@redux/actions": ["libs/redux/actions/src/index.ts"],
+      "@redux/hooks": ["libs/redux/hooks/src/index.ts"],
+      "@redux/reducers": ["libs/redux/reducers/src/index.ts"],
+      "@redux/store": ["libs/redux/store/src/counterSlice.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
